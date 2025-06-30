@@ -89,24 +89,24 @@ The generation process involves:
 │   │   ├── cnpy.cpp
 │   │   ├── dataloader.py
 │   │   ├── gen2.cpp
-│   │   └── gen.cpp         \# Main C++ executable for generating the dataset
+│   │   └── gen.cpp         # Main C++ executable for generating the dataset
 │   ├── includes
-│   │   └── program.hpp     \# Core C++ logic for the language, state, and sampling
+│   │   └── program.hpp     # Core C++ logic for the language, state, and sampling
 │   ├── libs
 │   │   ├── cnpy
 │   │   └── json
 │   ├── Makefile
 │   └── tests
-│       └── tests.cpp       \# Unit tests for the C++ data generator
+│       └── tests.cpp       # Unit tests for the C++ data generator
 ├── README.md
 ├── runs
 │   └── train.out
 └── src
-    ├── config\_muon.py      \# Dataclasses for model, training, and data configuration
-    ├── dataset.py          \# PyTorch Dataset class for loading .npy data
-    ├── model.py            \# GPT model implementation with RoPE, KV Caching
-    ├── muon.py             \# Muon optimizer implementation
-    └── train.py            \# Main training script
+    ├── config_muon.py      # Dataclasses for model, training, and data configuration
+    ├── dataset.py          # PyTorch Dataset class for loading .npy data
+    ├── model.py            # GPT model implementation with RoPE, KV Caching
+    ├── muon.py             # Muon optimizer implementation
+    └── train.py            # Main training script
 
 ```
 
