@@ -22,7 +22,7 @@ A custom esoteric programming language, similar in spirit to Brainfck, is used. 
 
 The state $S_t$ of a program at a given time $t$ is represented as a single, contiguous sequence of tokens:
 
-$$S_t = [ \text{instruction\_ptr}_t ] [ \text{instructions} ] [ \text{array\_ptr}_t ] [ \text{array}_t ] [ \text{input}_t ] [ \text{output}_t ]$$
+$$S_t = [ \mathrm{instruction\_ptr}_t ] [ \mathrm{instructions} ] [ \mathrm{array\_ptr}_t ] [ \mathrm{array}_t ] [ \mathrm{input}_t ] [ \mathrm{output}_t ]$$
 
 Where:
 * **`instructions`**: A buffer of size $N_I = 20$ containing the program's code, padded with at least one `STOP` token.
