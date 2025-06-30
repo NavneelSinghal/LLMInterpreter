@@ -25,12 +25,12 @@ The state $S_t$ of a program at a given time $t$ is represented as a single, con
 $$S_t = [ \mathrm{instruction\_ptr}_t ] [ \mathrm{instructions} ] [ \mathrm{array\_ptr}_t ] [ \mathrm{array}_t ] [ \mathrm{input}_t ] [ \mathrm{output}_t ]$$
 
 Where:
-* **`instructions`**: A buffer of size $N_I = 20$ containing the program's code, padded with at least one `STOP` token.
+* **`instructions`**: A buffer of size $N_I$ containing the program's code, padded with at least one `STOP` token.
 * **`instruction_ptr_t`**: A one-hot encoded vector of size $N_I$ pointing to the current instruction in `instructions`.
-* **`array_t`**: A data buffer of size $N_A = 20$. Each element is a number less than $2^B$ (where $B=4$).
+* **`array_t`**: A data buffer of size $N_A$. Each element is a number less than $2^B$ (where $B=4$).
 * **`array_ptr_t`**: A one-hot encoded vector of size $N_A$ pointing to the current cell in `array_t`.
-* **`input_t`**: An input buffer of size $N_{\text{input}} = 20$. It contains numbers or `EOI` (End of Input) tokens.
-* **`output_t`**: An output buffer of size $N_{\text{output}} = 20$. It starts filled with `EOO` (End of Output) tokens, which are replaced by numbers as the program executes.
+* **`input_t`**: An input buffer of size $N_{\text{input}}$. It contains numbers or `EOI` (End of Input) tokens.
+* **`output_t`**: An output buffer of size $N_{\text{output}}$. It starts filled with `EOO` (End of Output) tokens, which are replaced by numbers as the program executes.
 
 If any operation is invalid (e.g., overflow, out-of-bounds access, reading from empty input), the program **freezes**, meaning its state remains unchanged in the next step.
 

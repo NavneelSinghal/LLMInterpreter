@@ -12,7 +12,7 @@ CPPFLAGS = -I$(INC_DIR) -I$(LIB_DIR)/json/include -I$(LIB_DIR)/cnpy
 
 SRC_CNPY = $(SRC_DATA_DIR)/cnpy.cpp
 GEN_SRC = $(SRC_DATA_DIR)/gen.cpp
-GEN2_SRC = $(SRC_DATA_DIR)/gen.cpp
+GEN2_SRC = $(SRC_DATA_DIR)/gen2.cpp
 TEST_SRC = $(SRC_TEST_DIR)/tests.cpp
 
 OBJ_CNPY = $(BIN_DIR)/cnpy.o
@@ -65,11 +65,11 @@ clean:
 
 run_generator: $(GEN_EXE)
 	@echo "Running data generator..."
-	./$(GEN_EXE) ./data_output gen_run1 100
+	./$(GEN_EXE) ./data_output gen_run1 100 42
 
 run_generator2: $(GEN2_EXE)
 	@echo "Running data generator..."
-	./$(GEN2_EXE) ./data_output gen2_run1 100
+	./$(GEN2_EXE) ./data_output gen2_run1 100 42
 
 run_tests: $(TEST_EXE)
 	@echo "Running tests..."
