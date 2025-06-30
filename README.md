@@ -178,3 +178,4 @@ This section outlines planned improvements and areas for further investigation.
 ### Language & State Representation
 
   - **Optimal Layout:** Investigate whether token spacing or different serialization formats for the program state can improve model performance by giving it "room to think."
+  - **Making the layout harder:** Investigate what layouts can an LLM learn - currently the states are in what one could call a CoT format, the other end of this spectrum would be predicting just the output buffer after a few steps, which is hard for the transformer baseline to learn. Can we figure out the limits on the kinds of representations each architecture/optimizer is able to learn to grok?
