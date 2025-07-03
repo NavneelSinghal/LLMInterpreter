@@ -8,11 +8,13 @@ SRC_TEST_DIR = tests
 BIN_DIR = bin
 LIB_DIR = $(CURDIR)/libs
 
+CPPFLAGS_SIMPLE = -I$(INC_DIR)
 CPPFLAGS = -I$(INC_DIR) -I$(LIB_DIR)/json/include -I$(LIB_DIR)/cnpy
 
 SRC_CNPY = $(SRC_DATA_DIR)/cnpy.cpp
 GEN_SRC = $(SRC_DATA_DIR)/gen.cpp
 GEN2_SRC = $(SRC_DATA_DIR)/gen2.cpp
+GEN_SIMPLE_SRC = $(SRC_DATA_DIR)/gen_simple.cpp
 TEST_SRC = $(SRC_TEST_DIR)/tests.cpp
 
 OBJ_CNPY = $(BIN_DIR)/cnpy.o
@@ -21,9 +23,18 @@ GEN2_OBJ = $(BIN_DIR)/gen2.o
 TEST_OBJ = $(BIN_DIR)/tests.o
 
 GEN2_EXE = $(BIN_DIR)/generate_data2
+GEN_EXE = $(BIN_DIR)/generate_data2
+GEN_SIMPLE_EXE = $(BIN_DIR)/generate_data_simple
 TEST_EXE = $(BIN_DIR)/run_tests
 
 all: $(GEN_EXE) $(TEST_EXE) $(GEN2_EXE)
+
+simple: $(GEN_SIMPLE_EXE)
+
+$(GEN_SIMPLE_EXE): $(GEN_SIMPLE_SRC) $(INC_DIR)/program.hpp
+	@mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS_SIMPLE) $^ -o $@ $(LDFLAGS)
+	@echo "Built data generator: $@"
 
 $(GEN_EXE): $(GEN_OBJ) $(OBJ_CNPY)
 	@mkdir -p $(@D)
